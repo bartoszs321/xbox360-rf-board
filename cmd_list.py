@@ -1,5 +1,5 @@
 cmdlist = {
-    "ctl_sync": "0000001000",  # Initiates the sync process. no lights
+    "ctl_sync": "00000001000",  # Initiates the sync process. no lights
     "ctl_shutdown": "0000001001",  # Shutdown controllers remotely.
     "led_cmd": "0010000100",  # Activates/initialises the LEDs, leaving the center LED lit.
     "anim_cmd": "0010000101",  # Makes the startup animation on the ring of light.

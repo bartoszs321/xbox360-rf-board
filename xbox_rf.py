@@ -17,10 +17,6 @@ clock_pin = 16  # clock line (pin 7 on module)
 data_device = DigitalOutputDevice(data_pin)
 clock_device = DigitalInputDevice(clock_pin, pull_up=True)
 
-# Reverse cmdlist. Needed by Bruteforce to resolv
-# binary commands to their names.
-cmdlist_reversed = dict([(v, k) for k, v in cmdlist.items()])
-
 
 # SendData
 #   Sends a Command to the Module
@@ -81,6 +77,9 @@ def SendCommand(name, delay=0):
 #    ignore_known to false if you want to trigger
 #    commands that are already in cmdlist.
 def Bruteforce(begin=0, end=255, ignore_known=True, blocking=False):
+    # Reverse cmdlist. Needed by Bruteforce to resolv
+    # binary commands to their names.
+    cmdlist_reversed = dict([(v, k) for k, v in cmdlist.items()])
     while begin <= end:
         binstr = "00" + "{0:b}".format(begin)
         binstr = "0" * (7 - (len(binstr) - 3)) + binstr
